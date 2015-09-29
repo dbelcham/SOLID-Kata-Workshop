@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Build.Framework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +44,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="1-SRP\Chopper.cs" />
+    <Compile Include="1-SRP\EquipmentType.cs" />
+    <Compile Include="1-SRP\OwnershipType.cs" />
+    <Compile Include="1-SRP\UoM.cs" />
+    <Compile Include="2-OCP\Customer.cs" />
+    <Compile Include="2-OCP\Invoice.cs" />
+    <Compile Include="2-OCP\InvoiceService.cs" />
+    <Compile Include="2-OCP\InvoiceTotaler.cs" />
+    <Compile Include="2-OCP\Item.cs" />
+    <Compile Include="3-LSP\Combine.cs" />
+    <Compile Include="3-LSP\CostingCalculator.cs" />
+    <Compile Include="3-LSP\Equipment.cs" />
+    <Compile Include="3-LSP\EquipmentCostingServices.cs" />
+    <Compile Include="3-LSP\Tractor.cs" />
+    <Compile Include="3-LSP\Truck.cs" />
+    <Compile Include="3-LSP\Wagon.cs" />
+    <Compile Include="4-ISP\Brake.cs" />
+    <Compile Include="4-ISP\Car.cs" />
+    <Compile Include="4-ISP\CarServicing.cs" />
+    <Compile Include="4-ISP\Cylinder.cs" />
+    <Compile Include="4-ISP\Light.cs" />
+    <Compile Include="4-ISP\Radiator.cs" />
+    <Compile Include="4-ISP\Wheel.cs" />
+    <Compile Include="4-ISP\Wiper.cs" />
+    <Compile Include="5-DIP\Box.cs" />
+    <Compile Include="5-DIP\BoxSelector.cs" />
+    <Compile Include="5-DIP\Product.cs" />
+    <Compile Include="5-DIP\ProductVolumeCalculator.cs" />
+    <Compile Include="5-DIP\ShippingCompany.cs" />
+    <Compile Include="5-DIP\ShippingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
