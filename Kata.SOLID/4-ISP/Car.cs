@@ -2,7 +2,7 @@
 
 namespace Kata.SOLID
 {
-    public class Car
+    public class Car : IHaveRadiator, IHaveBrakes, IHaveOil, IHaveTires
     {
         private readonly IList<Brake> brakes;
 

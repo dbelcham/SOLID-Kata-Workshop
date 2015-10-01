@@ -5,27 +5,27 @@ namespace Kata.SOLID
 {
     public class EquipmentCostingServices
     {
-        private readonly List<Equipment> equipment;
+        private readonly List<IEquipment> equipment;
 
         public EquipmentCostingServices()
         {
-            this.equipment = new List<Equipment>
+            this.equipment = new List<IEquipment>
             {
                 new Tractor(),
                 new Combine(),
                 new Truck(),
-                //new Wagon()
+                new Wagon()
             };
         }
 
         public double GetTotalOperatingCost()
         {
-            return new CostingCalculator().OperatingCostFor(equipment);
+            return new CostingCalculator().OperatingCostFor(equipment.OfType<IWithEngine>());
         }
 
         public double GetTotalOwnershipCost()
         {
-            return new CostingCalculator().OwnershipCostFor(equipment);
+            return new CostingCalculator().OwnershipCostFor(equipment.OfType<IAmOwned>());
         }
     }
 }

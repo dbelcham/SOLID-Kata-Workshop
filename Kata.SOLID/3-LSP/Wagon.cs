@@ -1,13 +1,8 @@
 namespace Kata.SOLID
 {
-    public class Wagon : Equipment
+    public class Wagon : IAmOwned
     {
-        public override double RunningCost()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public override double OwnershipCost()
+        public double OwnershipCost()
         {
             return 15000;
         }

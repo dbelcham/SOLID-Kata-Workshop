@@ -1,13 +1,13 @@
 ﻿namespace Kata.SOLID
 {
-    public class Combine : Equipment
+    public class Combine : IWithEngine, IAmOwned
     {
-        public override double RunningCost()
+        public double RunningCost()
         {
             return 88.25;
         }
 
-        public override double OwnershipCost()
+        public double OwnershipCost()
         {
             return 100000;
         }

@@ -2,7 +2,7 @@
 
 namespace Kata.SOLID
 {
-    public class ProductVolumeCalculator
+    public class ProductVolumeCalculator : IProductVolumeCalculator
     {
         public double For(IEnumerable<Product> products)
         {

@@ -24,24 +24,8 @@
         /// <returns></returns>
         public double FinishTime(double truckTime)
         {
-            double finishTime = 0;
-            if (Speed > 0 && Width > 0 && Efficiency > 0)
-            {
-                if (Unit == UoM.Imperial)
-                {
-                    finishTime = Acres/(Speed*Width/8.25*Efficiency/100);
-                }
-                else
-                {
-                    finishTime = Acres/(Speed*Width/10*Efficiency/100);
-                }
-            }
-            if (finishTime < truckTime)
-            {
-                finishTime = truckTime;
-            }
-
-            return finishTime;
+            var equipmentWorkDurationCalculator = new EquipmentWorkDurationCalculator();
+            return equipmentWorkDurationCalculator.FinishTime(this, truckTime);
         }
 
         /// <summary>
@@ -53,42 +37,8 @@
         {
             var finishTime = FinishTime(truckTime);
 
-            if (ChopTractorType == EquipmentType.SelfPropelled)
-            {
-                switch (ChopType)
-                {
-                    case OwnershipType.Rent:
-                        return (Ownership*Acres) + (FuelPrice*FuelConsumptionRate*Power*finishTime) + (OperatorWage*finishTime) + (Ownership*Acres*Lube/100);
-                    case OwnershipType.Custom:
-                        return (Ownership*Acres);
-                    default:
-                        if (YearlyUse > 0)
-                        {
-                            return (Ownership*finishTime/YearlyUse) + (Ownership*Lube/100*finishTime/YearlyUse) +
-                                   (FuelPrice*FuelConsumptionRate*Power*finishTime) + (OperatorWage*finishTime);
-                        }
-                        return 0;
-                }
-            }
-            if (ChopTractorType == EquipmentType.PullType)
-            {
-                switch (ChopType)
-                {
-                    case OwnershipType.Rent:
-                        return (Ownership*Acres) + (FuelPrice*FuelConsumptionRate*Power*finishTime) + (OperatorWage*finishTime) +
-                               (Ownership*Acres*Lube/100);
-
-                    case OwnershipType.Custom:
-                        return (Ownership*Acres);
-                    default:
-                        if (YearlyUse > 0)
-                        {
-                            return (Ownership*finishTime/YearlyUse)*(Ownership*Lube/100*finishTime/YearlyUse);
-                        }
-                        return 0;
-                }
-            }
-            return 0;
+            var equipmentCostingCalculator = new ChopperTypeCostingCalculator();
+            return equipmentCostingCalculator.CalculateFor(truckTime, finishTime, this);
         }
     }
 }

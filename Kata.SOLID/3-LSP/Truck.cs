@@ -1,13 +1,13 @@
 ﻿namespace Kata.SOLID
 {
-    public class Truck : Equipment
+    public class Truck : IWithEngine, IAmOwned
     {
-        public override double RunningCost()
+        public double RunningCost()
         {
             return 3.5;
         }
 
-        public override double OwnershipCost()
+        public double OwnershipCost()
         {
             return 25000;
         }

@@ -12,15 +12,16 @@ namespace Kata.SOLID
             CheckRadiator(car);
         }
 
-        private void CheckRadiator(Car car)
+        private void CheckRadiator(IHaveRadiator car)
         {
             while (car.Radiator.Level < 85)
             {
                 car.AddRadiatorFluid(1);
+                
             }
         }
 
-        private void CheckBrakes(Car car)
+        private void CheckBrakes(IHaveBrakes car)
         {
             var brakes = car.Brakes.ToArray();
 
@@ -33,7 +34,7 @@ namespace Kata.SOLID
             }
         }
 
-        private void ChangeOil(Car car)
+        private void ChangeOil(IHaveOil car)
         {
             car.DrainOil();
             while (car.OilLevel != 100)
@@ -42,7 +43,7 @@ namespace Kata.SOLID
             }
         }
 
-        private void RotateTires(Car car)
+        private void RotateTires(IHaveTires car)
         {
             car.RotateTires();
         }

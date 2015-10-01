@@ -9,7 +9,7 @@
             invoice.AddItem(new Item("Brake", 2, 144.38));
             invoice.AddItem(new Item("Light", 2, 6.99));
 
-            var invoiceTotaler = new InvoiceTotaler();
+            var invoiceTotaler = new TaxedInvoiceTotaler();
             return invoiceTotaler.CalculateFor(invoice);
         }
     }

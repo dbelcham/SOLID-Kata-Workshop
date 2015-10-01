@@ -1,6 +1,6 @@
 ﻿namespace Kata.SOLID
 {
-    public class ShippingCompany
+    public class ShippingCompany : IShippingCompany
     {
         public void Send(Box box)
         {

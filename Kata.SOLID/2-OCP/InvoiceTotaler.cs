@@ -2,7 +2,12 @@
 
 namespace Kata.SOLID
 {
-    public class InvoiceTotaler
+    public interface IInvoiceTotaler
+    {
+        double CalculateFor(Invoice invoice);
+    }
+
+    public class InvoiceTotaler : IInvoiceTotaler
     {
         public double CalculateFor(Invoice invoice)
         {

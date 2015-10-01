@@ -1,6 +1,6 @@
 ﻿namespace Kata.SOLID
 {
-    public class BoxSelector
+    public class BoxSelector : IBoxSelector
     {
         public Box For(double volume)
         {

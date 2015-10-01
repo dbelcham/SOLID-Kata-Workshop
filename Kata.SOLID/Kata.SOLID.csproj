@@ -45,14 +45,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="1-SRP\Chopper.cs" />
+    <Compile Include="1-SRP\ChopperTypeCostingCalculator.cs" />
     <Compile Include="1-SRP\EquipmentType.cs" />
+    <Compile Include="1-SRP\EquipmentWorkDurationCalculator.cs" />
     <Compile Include="1-SRP\OwnershipType.cs" />
+    <Compile Include="1-SRP\PullTypeChopperCostingCalculator.cs" />
+    <Compile Include="1-SRP\PullTypeChopperCustomCostingCalculator.cs" />
+    <Compile Include="1-SRP\PullTypeChopperOwnedCostingCalculator.cs" />
+    <Compile Include="1-SRP\PullTypeChopperRentalCostingCalculator.cs" />
+    <Compile Include="1-SRP\SelfPropelledChopperCostingCalculator.cs" />
+    <Compile Include="1-SRP\SelfPropelledChopperCustomCostingCalculator.cs" />
+    <Compile Include="1-SRP\SelfPropelledChopperOwnedCostingCalculator.cs" />
+    <Compile Include="1-SRP\SelfPropelledChopperRentalCostingCalculator.cs" />
     <Compile Include="1-SRP\UoM.cs" />
     <Compile Include="2-OCP\Customer.cs" />
     <Compile Include="2-OCP\Invoice.cs" />
     <Compile Include="2-OCP\InvoiceService.cs" />
     <Compile Include="2-OCP\InvoiceTotaler.cs" />
     <Compile Include="2-OCP\Item.cs" />
+    <Compile Include="2-OCP\TaxedInvoiceTotaler.cs" />
     <Compile Include="3-LSP\Combine.cs" />
     <Compile Include="3-LSP\CostingCalculator.cs" />
     <Compile Include="3-LSP\Equipment.cs" />
@@ -64,12 +75,19 @@
     <Compile Include="4-ISP\Car.cs" />
     <Compile Include="4-ISP\CarServicing.cs" />
     <Compile Include="4-ISP\Cylinder.cs" />
+    <Compile Include="4-ISP\IHaveBrakes.cs" />
+    <Compile Include="4-ISP\IHaveOil.cs" />
+    <Compile Include="4-ISP\IHaveRadiator.cs" />
+    <Compile Include="4-ISP\IHaveTires.cs" />
     <Compile Include="4-ISP\Light.cs" />
     <Compile Include="4-ISP\Radiator.cs" />
     <Compile Include="4-ISP\Wheel.cs" />
     <Compile Include="4-ISP\Wiper.cs" />
     <Compile Include="5-DIP\Box.cs" />
     <Compile Include="5-DIP\BoxSelector.cs" />
+    <Compile Include="5-DIP\IBoxSelector.cs" />
+    <Compile Include="5-DIP\IProductVolumeCalculator.cs" />
+    <Compile Include="5-DIP\IShippingCompany.cs" />
     <Compile Include="5-DIP\Product.cs" />
     <Compile Include="5-DIP\ProductVolumeCalculator.cs" />
     <Compile Include="5-DIP\ShippingCompany.cs" />

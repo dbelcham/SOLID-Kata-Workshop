@@ -6,19 +6,29 @@ namespace Kata.SOLID
 {
     public class ShippingService
     {
-        public void ShipProducts(IEnumerable<Product> products)
+        private readonly IProductVolumeCalculator _productVolumeCalculator;
+        private readonly IBoxSelector _boxSelector;
+
+        public ShippingService(IProductVolumeCalculator productVolumeCalculator, IBoxSelector boxSelector)
         {
-            ProductVolumeCalculator volumeCalculator = new ProductVolumeCalculator();
+            _productVolumeCalculator = productVolumeCalculator;
+            _boxSelector = boxSelector;
+        }
 
-            var volume = volumeCalculator.For(products);
+        public void ShipProducts(IList<Product> products)
+        {
+            //example of Dependency Injections
+            var volume = _productVolumeCalculator.For(products);
 
-            BoxSelector boxSelector = new BoxSelector();
+            //dependency Inversion
+            IBoxSelector boxSelector = new BoxSelector();
 
             var box = boxSelector.For(volume);
 
             box.LoadWith(products);
 
-            ShippingCompany shipper = new ShippingCompany();
+            //dependency Inversion
+            IShippingCompany shipper = new ShippingCompany();
             shipper.Send(box);
         }
     }

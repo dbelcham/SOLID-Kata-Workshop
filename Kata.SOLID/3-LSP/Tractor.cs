@@ -1,13 +1,27 @@
 ﻿namespace Kata.SOLID
 {
-    public class Tractor : Equipment
+    public interface IWithEngine:IEquipment
     {
-        public override double RunningCost()
+        double RunningCost();
+    }
+
+    public interface IEquipment
+    {
+    }
+
+    public interface IAmOwned:IEquipment
+    {
+        double OwnershipCost();
+    }
+
+    public class Tractor : IWithEngine, IAmOwned
+    {
+        public double RunningCost()
         {
             return 33.5;
         }
 
-        public override double OwnershipCost()
+        public double OwnershipCost()
         {
             return 4000;
         }
